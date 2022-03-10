@@ -1,0 +1,25 @@
+# Setting up the environment
+
+cmsrel CMSSW_10_6_22
+cd CMSSW_10_6_22/src
+cmsenv
+git cms-init
+git cms-addpkg RecoParticleFlow
+
+git clone https://github.com/mmylly/QCDReconstruction.git
+
+scram b -j
+
+# Running the code
+
+cd QCDReconstruction/PFChargedHadronAnalyzer/test
+
+copy step2_QCD_100.root file here
+
+cmsRun step3_QCD_100.py
+
+# Printing tests
+
+1. Modify RecoParticleFlow/PFProducer/src/PFAlgo.cc
+2. scram b -j in src
+3. cmsRun step3_QCD_100.py
